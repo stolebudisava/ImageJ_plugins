@@ -8,18 +8,23 @@ import ij.plugin.frame.*;
 public class Logos_plugin implements PlugIn {
 
 	public void run(String arg) {
+		//get current image
 		ImagePlus curr_img = IJ.getImage(); 
 		String title = curr_img.getTitle();
 		
+		//get current image size
 		float orig_width = curr_img.getWidth();
 		float orig_height = curr_img.getHeight();
 		
+		//current image scale factor
 		float scale_factor = orig_height/orig_width;
 		
+		//image heights for each of 3 images
 		float dlrg =  150*scale_factor;
 		float dnor =  80*scale_factor;
 		float dsml =  16*scale_factor;
 		
+		//values for placing image on the middle of new generated image
 		float dlrgH = dlrg/2;
 		float dnorH = dnor/2;
 		float dsmlH = dsml/2;
@@ -32,6 +37,7 @@ public class Logos_plugin implements PlugIn {
 		int yN = 40 - (int) Math.round(dnorH);
 		int yS = 8 - (int) Math.round(dsmlH);
 		
+		//creating images
 		ImageProcessor ip_big = curr_img.getProcessor(); 
 		ip_big.setInterpolate(true);
 		
@@ -51,13 +57,14 @@ public class Logos_plugin implements PlugIn {
 		procN.insert(ip_normal, 2, yN);
 		procS.insert(ip_sml, 1, yS);
 		
+		//creating image names
 		ImagePlus lrg = new ImagePlus("lrg-" + title, procL);
 		ImagePlus normal = new ImagePlus(title, procN);
 		ImagePlus small = new ImagePlus("sml-" + title, procS);
 		
+		//show generated images
 		lrg.show();
 		normal.show();
 		small.show();
 	}
-
 }
