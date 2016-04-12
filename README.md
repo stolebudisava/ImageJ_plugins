@@ -1,1 +1,1 @@
-# logocreator
+Logo Creator is a plugin for ImageJ (https://imagej.nih.gov/ij/)  image processing software. It generates 3 images(150x150,80x80,16x16) with custom prefixes to original image name (lrg-, sml-, and without prefix) from original image, no matter what original image dimensions are. It does automatic scaling and placing original scaled image of new generated image. Values can be hard coded and customized to any specific dimension for generated images.
