@@ -51,7 +51,6 @@ public class Logos_plugin implements PlugIn {
 		procN.insert(ip_normal, 2, yN);
 		procS.insert(ip_sml, 1, yS);
 		
-	
 		ImagePlus lrg = new ImagePlus("lrg-" + title, procL);
 		ImagePlus normal = new ImagePlus(title, procN);
 		ImagePlus small = new ImagePlus("sml-" + title, procS);
